@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using InteractR.Interactor;
-using InteractR.Resolver;
+﻿using InteractR.Interactor;
 using StructureMap;
 
-namespace InteractorHub.Resolvers.AutoFac
+namespace InteractR.Resolver.StructureMap
 {
     public class StructureMapResolver : IResolver
     {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using InteractR.Interactor;
 
-namespace InteractR.Resolver.AutoFac.Tests.Mocks
+namespace InteractR.Resolver.StructureMap.Tests.Mocks
 {
     public class MockInteractor : IInteractor<MockUseCase, IMockOutputPort>
     {

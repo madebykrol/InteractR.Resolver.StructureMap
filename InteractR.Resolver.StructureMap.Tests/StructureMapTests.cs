@@ -1,15 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-
-using InteractorHub.Resolvers.AutoFac;
-using InteractR;
 using InteractR.Interactor;
-using InteractR.Resolver.AutoFac.Tests.Mocks;
+using InteractR.Resolver.StructureMap.Tests.Mocks;
 using NSubstitute;
 using NUnit.Framework;
 using StructureMap;
 
-namespace InteractorHub.Tests.Resolvers.AutoFac
+namespace InteractR.Resolver.StructureMap.Tests
 {
     [TestFixture]
     public class AutoFacTests
