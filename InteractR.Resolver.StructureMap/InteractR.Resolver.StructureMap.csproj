@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.9.2" />
     <PackageReference Include="InteractR" Version="1.0.0" />
+    <PackageReference Include="structuremap" Version="4.7.1" />
   </ItemGroup>
 
 </Project>
