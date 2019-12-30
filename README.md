@@ -5,5 +5,5 @@ Built for StrucutreMap 4.7.1 for other versions please use this repository for r
 
 Install from nuget.
 ```PowerShell
-PM > Install-Package InteractR.Resolver.StructureMap -Version 1.0.1
+PM > Install-Package InteractR.Resolver.StructureMap -Version 2.0.0
 ```
