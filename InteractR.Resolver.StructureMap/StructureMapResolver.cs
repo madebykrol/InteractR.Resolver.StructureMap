@@ -1,4 +1,6 @@
-﻿using InteractR.Interactor;
+﻿using System.Collections.Generic;
+using System.Linq;
+using InteractR.Interactor;
 using StructureMap;
 
 namespace InteractR.Resolver.StructureMap
@@ -18,6 +20,11 @@ namespace InteractR.Resolver.StructureMap
         public IInteractor<TUseCase, TOutputPort> ResolveInteractor<TUseCase, TOutputPort>(TUseCase useCase) where TUseCase : IUseCase<TOutputPort>
         {
             return Resolve<IInteractor<TUseCase, TOutputPort>>();
+        }
+
+        public IReadOnlyList<IMiddleware<TUseCase, TOutputPort>> ResolveMiddleware<TUseCase, TOutputPort>(TUseCase useCase) where TUseCase : IUseCase<TOutputPort>
+        {
+            return _container.GetAllInstances<IMiddleware<TUseCase, TOutputPort>>().ToList();
         }
     }
 }
