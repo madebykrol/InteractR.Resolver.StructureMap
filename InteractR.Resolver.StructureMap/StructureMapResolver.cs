@@ -13,18 +13,17 @@ namespace InteractR.Resolver.StructureMap
             _container = container;
         }
 
-        private T Resolve<T>()
-        {
-            return _container.GetInstance<T>();
-        }
-        public IInteractor<TUseCase, TOutputPort> ResolveInteractor<TUseCase, TOutputPort>(TUseCase useCase) where TUseCase : IUseCase<TOutputPort>
-        {
-            return Resolve<IInteractor<TUseCase, TOutputPort>>();
-        }
+        private T Resolve<T>() => _container.GetInstance<T>();
 
-        public IReadOnlyList<IMiddleware<TUseCase, TOutputPort>> ResolveMiddleware<TUseCase, TOutputPort>(TUseCase useCase) where TUseCase : IUseCase<TOutputPort>
-        {
-            return _container.GetAllInstances<IMiddleware<TUseCase, TOutputPort>>().ToList();
-        }
+        public IInteractor<TUseCase, TOutputPort> ResolveInteractor<TUseCase, TOutputPort>(TUseCase useCase) 
+            where TUseCase : IUseCase<TOutputPort> 
+                => Resolve<IInteractor<TUseCase, TOutputPort>>();
+
+        public IReadOnlyList<IMiddleware<TUseCase, TOutputPort>> ResolveMiddleware<TUseCase, TOutputPort>(TUseCase useCase) 
+            where TUseCase : IUseCase<TOutputPort> 
+                => _container.GetAllInstances<IMiddleware<TUseCase, TOutputPort>>().ToList();
+
+        public IReadOnlyList<IMiddleware> ResolveGlobalMiddleware() 
+            => _container.GetAllInstances<IMiddleware>().ToList();
     }
 }
