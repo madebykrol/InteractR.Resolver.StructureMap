@@ -7,13 +7,13 @@ namespace InteractR.Resolver.StructureMap
 {
     public class StructureMapResolver : IResolver
     {
-        private readonly IContainer _container;
-        public StructureMapResolver(IContainer container)
+        private readonly IContext _context;
+        public StructureMapResolver(IContext context)
         {
-            _container = container;
+            _context = context;
         }
 
-        private T Resolve<T>() => _container.GetInstance<T>();
+        private T Resolve<T>() => _context.GetInstance<T>();
 
         public IInteractor<TUseCase, TOutputPort> ResolveInteractor<TUseCase, TOutputPort>(TUseCase useCase) 
             where TUseCase : IUseCase<TOutputPort> 
@@ -21,9 +21,9 @@ namespace InteractR.Resolver.StructureMap
 
         public IReadOnlyList<IMiddleware<TUseCase, TOutputPort>> ResolveMiddleware<TUseCase, TOutputPort>(TUseCase useCase) 
             where TUseCase : IUseCase<TOutputPort> 
-                => _container.GetAllInstances<IMiddleware<TUseCase, TOutputPort>>().ToList();
+                => _context.GetAllInstances<IMiddleware<TUseCase, TOutputPort>>().ToList();
 
         public IReadOnlyList<IMiddleware> ResolveGlobalMiddleware() 
-            => _container.GetAllInstances<IMiddleware>().ToList();
+            => _context.GetAllInstances<IMiddleware>().ToList();
     }
 }

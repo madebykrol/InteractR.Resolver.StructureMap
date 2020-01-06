@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.1.0</Version>
+    <Version>2.1.1</Version>
     <PackageProjectUrl>https://github.com/madebykrol/InteractR.Resolver.StructureMap</PackageProjectUrl>
     <Authors>Kristoffer Olsson</Authors>
-    <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <FileVersion>2.1.0.0</FileVersion>
+    <AssemblyVersion>2.1.1.0</AssemblyVersion>
+    <FileVersion>2.1.1.0</FileVersion>
     <Company>Kristoffer Olsson</Company>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InteractR" Version="2.1.0" />
+    <PackageReference Include="InteractR" Version="2.1.1" />
     <PackageReference Include="structuremap" Version="4.7.1" />
   </ItemGroup>
 

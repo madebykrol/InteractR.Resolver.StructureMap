@@ -46,9 +46,10 @@ namespace InteractR.Resolver.StructureMap.Tests
                 c.For<IInteractor<MockUseCase, IMockOutputPort>>().Use(_useCaseInteractor);
                 c.For<IMiddleware<MockUseCase, IMockOutputPort>>().Use(_middleware1);
                 c.For<IMiddleware<MockUseCase, IMockOutputPort>>().Use(_middleware2);
+                c.AddRegistry<ResolverModule>();
             });
 
-            _interactorHub = new Hub(new StructureMapResolver(container));
+            _interactorHub = container.GetInstance<IInteractorHub>();
         }
 
         [Test]
